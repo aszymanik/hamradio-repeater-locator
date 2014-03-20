@@ -1,0 +1,37 @@
+<!--
+  This template loads for the 'tab.about' state (app.js)
+-->
+<ion-view title="Settings">
+  <ion-content has-header="true" has-tabs="true" padding="true">
+  <form name="SettingsForm" ng-submit="save()" ng-controller="SettingsCtrl">
+   <div class="list">
+     <div class="item item-divider">
+      Search Filter
+      <label class="item item-input">
+         <input type="number" placeholder="Distance" ng-model="distance" value=25> km
+       </label>
+     </div>
+     <div class="item item-divider">
+      Band Selection
+      <div ng-repeat="band in bands">
+        <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" name="selectedBands[]" ng-model="band.selected" value="{{selected}}"></label>{{band.text}}</li>        
+      </div>
+     </div>
+   </div>
+
+   <button class="button button-block button-positive" href="#/tab/repeaters">Save</button>
+  </form>
+  </ion-content>
+</ion-view>
+
+<!--
+
+
+
+      <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" ng-model="m6"></label>6 m</li>
+      <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" ng-model="m2"></label>2 m</li>
+      <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" ng-model="m125"></label>1.25 m</li>
+      <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" ng-model="cm70"></label>70 cm</li>
+      <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" ng-model="cm33"></label>33 cm</li>
+      <li class="item item-checkbox"><label class="checkbox"><input type="checkbox" ng-model="cm23"></label>23 cm</li>
+-->

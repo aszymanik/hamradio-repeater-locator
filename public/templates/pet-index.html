@@ -1,0 +1,19 @@
+<!-- 
+  This template gets placed in the Pet tab's <ion-nav-view> directive.
+  It was wired up in the app config (app.js) 
+  The 'pets' data comes from its $scope within PetIndexCtrl (controller.js)
+-->
+<ion-view title="Local Repeaters">
+  <ion-content has-header="true" has-tabs="true">
+
+    <ion-list>
+
+      <ion-item ng-repeat="row in repeaters | orderBy:'distance'" type="item-text-wrap" href="#repeater/{{row.id}}">
+        <h3>{{row.call}}</h3>
+        <p>{{row.location}} :: {{row.distance | number:2}} km </p>
+
+      </ion-item>      
+    </ion-list>
+
+  </ion-content>
+</ion-view>
