@@ -1,0 +1,13 @@
+# database files
+*.db
+
+
+# csv files to import
+*.csv
+
+
+# included librarys
+node_modules/*
+public/lib/*
+public/res/*
+
