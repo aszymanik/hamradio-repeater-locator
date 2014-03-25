@@ -1,9 +1,10 @@
 from sqlalchemy import *
 import csv
+import sys
 
 def main(repeaters):
 	columns = ['freq_out', 'freq_in', 'offset', 'tone', 'tsq', 'location', 'county', 'lat', 'lon', 'call', 'use', 'opstatus', 'mode', 'echolink', 'irlp', 'allstar', 'coverage', 'last_update']
-	with open('rb.csv', 'rb') as sfile:
+	with open(sys.argv[1], 'rb') as sfile:
 		next(sfile)
 		rows = csv.DictReader(sfile, fieldnames=columns, delimiter=",")
 		marshalled_rows = []

@@ -21,16 +21,18 @@ exports.repeaterlist = function(req, res){
 				"WHERE lat BETWEEN " + coords.sw.lat + " AND " + coords.ne.lat +
 				" AND lon BETWEEN " + coords.sw.lon + " AND " + coords.ne.lon;
 	
-	var firstfilter = true;
+	var filtered = false;
 	for (band in req.body.filter) {
 		if (req.body.filter[band].selected) {
-			if (firstfilter) {bandfilter += " AND (";}
-
-			bandfilter += " freq_in BETWEEN " + bands[band].start + " AND " + bands[band].stop;
+			bandfilter += "freq_in BETWEEN " + bands[band].start + " AND " + bands[band].stop + " OR ";
+			filtered = true;
 		}
+
 	}
-	console.log(query);
-	console.log(bandfilter);
+	if (filtered) {
+		query += " AND (" + bandfilter.slice(0, -3) + ")"
+	}
+	
 	db.all(query, 
 		function (err, row) {
 			res.send(row);
